@@ -42,35 +42,35 @@ public abstract class Node {
         }
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected void setType(NodeType type) {
+    public void setType(NodeType type) {
         this.type = type;
     }
 
-    protected void setRealNode(Node realNode) {
+    public void setRealNode(Node realNode) {
         this.realNode = realNode;
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
-    protected NodeType getType() {
+    public NodeType getType() {
         return type;
     }
 
-    protected void setHits(AtomicLong hits) {
+    public void setHits(AtomicLong hits) {
         this.hits = hits;
     }
 
-    protected Node getRealNode() {
+    public Node getRealNode() {
         return realNode;
     }
 
-    protected AtomicLong getHits() {
+    public AtomicLong getHits() {
         return hits;
     }
 
