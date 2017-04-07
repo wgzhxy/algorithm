@@ -1,6 +1,9 @@
 package org.wanggz.algorithm.consistency.caculate.impl;
 
 
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wanggz.algorithm.consistency.HashAlgorithm;
 import org.wanggz.algorithm.consistency.caculate.AntCalculator;
 import org.wanggz.algorithm.consistency.caculate.CalculatorModel;
@@ -113,7 +116,7 @@ public class AntCalculatorImpl implements AntCalculator {
         long begin = beginTime.getTime();
         long now = System.currentTimeMillis();
         double greyFactor = (now - begin) / ((greyTime * 60 * 1000) * 1.0); //转换成毫秒进行计算
-        greyFactor = FormatUtil.roundx2(greyFactor) * maxLevel;
+        greyFactor = Math.round(greyFactor) * maxLevel;
         int greyLevel = (int) Math.round(greyFactor);
         // 确保在1到maxLevel之间
         greyLevel = Math.max(1, greyLevel);
@@ -127,8 +130,9 @@ public class AntCalculatorImpl implements AntCalculator {
     }
 
     private boolean target(String expression, Map<String, Object> context) {
-        ConditionUtils.excutePreFilter(expression, context);
-        Boolean ret = TargetingExecutor.execute(expression, context);
-        return ret;
+        // ConditionUtils.excutePreFilter(expression, context);
+        // Boolean ret = TargetingExecutor.execute(expression, context);
+        // 表达式计算
+        return Boolean.FALSE;
     }
 }
