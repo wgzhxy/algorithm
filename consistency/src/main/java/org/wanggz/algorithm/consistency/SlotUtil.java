@@ -17,16 +17,15 @@ public class SlotUtil {
         return hashCode;
     }
 
-    /**
-     * 通过antKey产生hashCode
-     */
-    public static long generateMurmurHashCode(String key, String salt) {
-        return Math.abs(HashAlgorithms.murmurHash((key + salt).getBytes()));
-    }
-
     public static long getBelongedSlotNum(String key, String salt, int slotSize) {
         long keyHashCode = generateMurmurHashCode(key, salt);
         return (keyHashCode % slotSize);
     }
 
+    /**
+     * 通过antKey产生hashCode
+     */
+    private static long generateMurmurHashCode(String key, String salt) {
+        return Math.abs(HashAlgorithms.murMurHash32(salt + key));
+    }
 }

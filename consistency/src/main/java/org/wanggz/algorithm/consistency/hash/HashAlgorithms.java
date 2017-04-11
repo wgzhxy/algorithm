@@ -1,7 +1,10 @@
 package org.wanggz.algorithm.consistency.hash;
 
+import com.google.common.hash.Hashing;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.Charset;
 
 /**
  * Hash算法大全
@@ -9,6 +12,8 @@ import java.nio.ByteOrder;
  * 推荐使用FNV1算法
  */
 public class HashAlgorithms {
+
+    private static final String UTF_8 = "utf-8";
 
     /**
      * 加法hash
@@ -453,5 +458,9 @@ public class HashAlgorithms {
 
         buf.order(byteOrder);
         return h;
+    }
+
+    public static long murMurHash32(String key) {
+        return Hashing.murmur3_32().hashString(key, Charset.forName(UTF_8)).asLong();
     }
 }

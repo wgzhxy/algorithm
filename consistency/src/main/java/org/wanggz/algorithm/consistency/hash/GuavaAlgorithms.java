@@ -19,7 +19,7 @@ public class GuavaAlgorithms {
         if (hashFunc.get(seedKey) == null) {
             hashFunc.put(seedKey, Hashing.murmur3_32());
         }
-        return hashFunc.get(seedKey).hashBytes(md5(key)).asInt();
+        return hashFunc.get(seedKey).hashBytes(md5(key)).asLong();
     }
 
     public static long murMurHash32(byte[] digest) {
